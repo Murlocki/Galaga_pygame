@@ -1,13 +1,15 @@
 import sys
 import pygame
+from settings import Settings
+
 
 def run_game():
     # Инициализация pygame
     pygame.init()
 
     # Получаем разрешение экрана
-    info_object = pygame.display.Info()
-    screen = pygame.display.set_mode((info_object.current_w-20, info_object.current_h-20))
+    settings=Settings()
+    screen = pygame.display.set_mode((settings.width, settings.heigth))
 
     # Заголовок окна
     pygame.display.set_caption('Galaga')
@@ -19,6 +21,6 @@ def run_game():
                 sys.exit()
 
         #Заполняем и перерисовываем экран
-        screen.fill((255,255,255))
+        screen.fill(settings.background_color)
         pygame.display.flip()
 run_game()
