@@ -1,7 +1,7 @@
 import sys
 import pygame
 from settings import Settings
-
+from ship import Ship
 
 def run_game():
     # Инициализация pygame
@@ -14,6 +14,8 @@ def run_game():
     # Заголовок окна
     pygame.display.set_caption('Galaga')
 
+    # Создаем корабль игрока
+    ship = Ship()
     # Обработка событий от пользователя
     while True:
         for event in pygame.event.get():
@@ -22,5 +24,6 @@ def run_game():
 
         #Заполняем и перерисовываем экран
         screen.fill(settings.background_color)
+        ship.blitme()
         pygame.display.flip()
 run_game()
